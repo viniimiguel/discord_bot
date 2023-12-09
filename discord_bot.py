@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import time
 import random
+import jogoForca
 
 class Discord_bot():
     def __init__(self):
@@ -23,7 +24,14 @@ class Discord_bot():
 
         @self.bot.command(name="forca")
         async def get_forca(ctx):
-            pass
+            forca = jogoForca.Forca()
+
+            forca.add_words()
+            forca.game_define()
+
+            await ctx.send(f"o jogo da forca foi iniciado voce tem 6 chances!")
+
+            
             
 
         self.bot.run(self.discord_token)
