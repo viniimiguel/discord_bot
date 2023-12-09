@@ -10,7 +10,7 @@ class Discord_bot():
 
         self.bot = commands.Bot(command_prefix="$", intents=self.intents)
 
-        self.discord_token = "MTE3MjcwNzcyNjQ5Nzk0NzY3OA.G8BuLc.5CMFySkvNHDVEo_iHMMjw5BZJ1UG_ObASs_5sY"
+        self.discord_token = ""
     
 
 
@@ -23,7 +23,7 @@ class Discord_bot():
 
         @self.bot.command(name="forca")
         async def get_forca(ctx):
-            print("hello world")
+            pass
             
 
         self.bot.run(self.discord_token)
