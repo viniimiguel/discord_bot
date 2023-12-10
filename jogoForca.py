@@ -41,8 +41,18 @@ class Forca:
         print(f"voce tem: {self.max_attempts} vidas.\n")
         print(palavra)
 
+
         if inpt[0] in self.word:
             print(f"voce acertou a letra {inpt[0]}\n")
+            indices = [indice for indice, letra in enumerate(self.word) if letra == inpt[0]]
+            for indice in indices:
+                self.guess[indice] = inpt[0]
+                if "-" not in self.guess:
+                    print(f"voce venceu a palavra era {self.word}")
+                    exit()
+
+            print(indices)
+            print(self.guess)
             self.attempts += 1
         
         elif self.attempts == 6:
@@ -67,16 +77,17 @@ class Forca:
         global palavra
 
         lword = len(self.word)
-        palavra = self.guess * lword
+        self.guess = ["-"] * lword
+        palavra = "".join(self.guess)
 
         print(palavra)
         print(self.word)
-        
 
-
-        for i in range(0,7):
+        while self.attempts < 7:
             self.question()
 
+        print(f"Você perdeu! A palavra era: {self.word}")
+        exit()
 
 forca = Forca()
 forca.main()
